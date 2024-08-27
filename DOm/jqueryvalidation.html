@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form1">
+      Name:
+      <input type="text" name="myname" id="myname" />
+      <br /><br />
+      Email:
+      <input type="text" name="email" id="email" />
+      <br /><br />
+
+      Password:
+      <input type="text" name="password" id="password" />
+      <br /><br />
+
+      confirmpassword:
+      <input type="text" name="confirmpassword" id="confirmpassword" />
+      <br /><br />
+
+      phone:
+      <input type="text" name="phone" id="phone" />
+      <br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
+    <script>
+      jQuery.validator.addMethod(
+        "lettersonly",
+        function (value, element) {
+          return this.optional(element) || /^[a-z\s]+$/i.test(value);
+        },
+        "Only alphabetical characters"
+      );
+
+      $(document).ready(function () {
+        $("#form1").validate({
+          rules: {
+            myname: {
+              required: true,
+              lettersonly: true,
+              minlength: 3,
+            },
+            email: {
+              required: true,
+              email: true,
+            },
+
+            password: {
+              required: true,
+              minlength: 5,
+            },
+            confirmpassword: {
+              required: true,
+              equalTo: "#password",
+            },
+            phone: {
+              required: true,
+              digits: true,
+              number: true,
+
+              maxlength: 10,
+            },
+          },
+          messages: {
+            myname: {
+              required: "The Name field is required",
+              minlength: "You must enter at least 3 characters",
+              lettersonly: "letters only allow",
+            },
+            email: {
+              required: "The Email field is required",
+              email: "You must enter a valid email address",
+            },
+            password: {
+              required: "The Password field is required",
+              minlength: "You must enter at least 5 characters",
+            },
+            confirmpassword: {
+              required: "The Confirm password field is required",
+              equalTo: "The Confirm password field must match with Password",
+            },
+            phone: {
+              required: "Please Enter Your Mobile Number",
+              number: "Please enter numbers Only",
+
+              maxlength: "min and max 10 digits number",
+            },
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

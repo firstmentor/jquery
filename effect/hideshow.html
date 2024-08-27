@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .a{
+            border: 5px solid;
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+   
+  </head>
+  <body>
+    <div id="box" class="a">
+
+    </div>
+
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <button id="toggle">Toggle</button>
+
+
+   
+
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#hide").click(function () {
+          $("#box").hide(3000);
+        });
+
+        $("#show").click(function () {
+          $("#box").show(3000);
+        });
+
+        $("#toggle").click(function () {
+          $("#box").toggle(3000);
+        });
+      });
+    </script>
+  </body>
+</html>

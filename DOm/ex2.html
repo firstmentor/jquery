@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/js/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <form id="frm">
+        <input type="text" id="name" />
+        
+        <br>
+        <button type="button" id="btn">Submit</button>
+        <div id="msg"></div>
+    </form>
+    
+
+    <script>
+     
+        $("#btn").click(function () {
+          name = $("#name").val();
+          //$('#msg').html(" welcom "+ name)
+          if (name == "") {
+            $('#msg').html("please enter name")
+          }else{
+            $('#frm').hide()
+            $('#msg').html(" Thanks "+ name)
+          }
+        });
+      
+    </script>
+  </body>
+</html>
